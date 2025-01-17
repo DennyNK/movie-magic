@@ -13,7 +13,11 @@ app.set('views', './src/views');
 app.use('/static', express.static('src/public'))
 
 app.get('/', (req, res) => {
-    res.render('home', {layout: false});
+    res.render('home');
 });
+
+app.get('/about', (req, res) => {
+    res.render('about')
+})
 
 app.listen(1000, () => console.log('Server is listening on http://localhost:1000...'));
