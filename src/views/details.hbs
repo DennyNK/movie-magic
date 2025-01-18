@@ -1,36 +1,34 @@
 <section id="details-page">
-                {{#each movies}}
+
                 <div class="main_card">
                     <div class="card_left">
                         <div class="card_datails">
 
-                            
-                            
-                            <h1>{{name}}</h1>
+                            <h1>{{movie.name}}</h1>
                             <div class="card-movie">
                                 <div class="first-info">
-                                    <p class="card-genre">Genre: {{genre}} </p>
-                                    <p class="card-director">Directror: {{director}}</p>
+                                    <p class="card-genre">Genre: {{movie.genre}} </p>
+                                    <p class="card-director">Directror: {{movie.director}}</p>
                                     
                                 </div>
                                 <div class="second-info">
                                     
-                                    <p class="card-year">Year: {{year}}</p>
+                                    <p class="card-year">Year: {{movie.year}}</p>
                                     <p class="card-ranking">Rating: <span id="stars">&#x2605; &#x2605; &#x2605;
                                             &#x2605;</span></p>
                                 </div>
 
                             </div>
 
-                            <p class="disc">{{description}}</p>
-                                <p class="card-category">Category: {{category}}</p>
+                            <p class="disc">{{movie.description}}</p>
+                                <p class="card-category">Category: {{movie.category}}</p>
                         </div>
                     </div>
                     <div class="card_right">
-                        <img src="{{image}}"
-                            alt="{{name}}">
+                        <img src="{{movie.image}}"
+                            alt="{{movie.name}}">
                     </div>
                     
                 </div>
-                {{/each}}
+
             </section>
