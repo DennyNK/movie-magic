@@ -13,6 +13,9 @@ export default {
             ...movieData,
         });
         return newId;
+    },
+    getAll(){
+        return movies;
     }
 
 }
