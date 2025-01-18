@@ -1,5 +1,6 @@
 export default [
     {
+        id: 1,
         title:'Jungle Cuise',
         category: 'movie',
         genre: 'Adventure',
@@ -11,6 +12,7 @@ export default [
     } ,
 
     {
+        id: 2,
         title:'The Little Mermaid',
         category: 'movie',
         genre: 'Fantasy',
@@ -22,6 +24,7 @@ export default [
     }, 
 
     {
+        id: 3,
         title:'Home Alone',
         category: 'movie',
         genre: 'Comedy',
