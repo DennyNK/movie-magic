@@ -6,7 +6,7 @@ category: String,
 genre: String,
 director: String,
 year: Number,
-imageURL: String,
+image: String,
 rating: Number,
 description: String,
 });
