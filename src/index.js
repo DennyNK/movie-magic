@@ -12,6 +12,8 @@ try{
     console.log("DB connected");
     
 } catch(err){
+    console.log('Cannot connect to DB');
+    
     console.err(err.message);
 }
 
