@@ -1,8 +1,10 @@
-import movies from "../movies.js";
 import { v4 as uuid } from 'uuid';
+import movies from '../movies.js'
+import Movie from "../models/Movie.js";
+
 export default {
-    findMovie(movieId){
-        const resultMovie = movies.find(movie => movie.id === movieId);
+    getOne(movieId){
+        const resultMovie = Movie.findById(movieId);
     
         return resultMovie;
     },
@@ -16,19 +18,19 @@ export default {
         return newId;
     },
     getAll(filter = {}){
-        let result = movies;
+        let result = Movie.find({});
 
-        if(filter.search){
-            result = result.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()));
-        }
+        // if(filter.search){
+        //     result = result.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()));
+        // }
 
-        if(filter.genre){
-            result = result.filter(movie => movie.genre.toLowerCase() === filter.genre);
-        }
+        // if(filter.genre){
+        //     result = result.filter(movie => movie.genre.toLowerCase() === filter.genre);
+        // }
 
-        if(filter.year){
-            result = result.filter(movie => movie.year === filter.year);
-        }
+        // if(filter.year){
+        //     result = result.filter(movie => movie.year === filter.year);
+        // }
 
         return result;
     }
