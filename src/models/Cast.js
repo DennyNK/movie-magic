@@ -4,7 +4,7 @@ const castSchema = new Schema({
 
     name: String,
     age: Number,
-    born: Number,
+    born: String,
     // nameInMovie: String,
     image: String,
     // movie: '',
