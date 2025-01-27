@@ -2,7 +2,7 @@ import Movie from "../models/Movie.js";
 
 export default {
     getOne(movieId){
-        const resultMovie = Movie.findById(movieId);
+        const resultMovie = Movie.findById(movieId).populate('cast');
     
         return resultMovie;
     },
@@ -34,9 +34,9 @@ export default {
 
         return query;
     },
-    async attachCast(castId){
+    async attachCast(movieId, castId){
         const movie = await Movie.findById(movieId);
-        movie.casts.push(castId);
+        movie.cast.push(castId);
         await movie.save();
 
         return movie;
