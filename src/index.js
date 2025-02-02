@@ -1,10 +1,12 @@
+import 'dotenv/config';
+// console.log('JWT Secret:', process.env.JWT_SECRET);
 import express from 'express';
 import handlebars from 'express-handlebars';
 import routes from './routes.js';
 import showRating from './helpers/ratingHelper.js';
 import mongoose from 'mongoose';
-import 'dotenv/config';
 import cookieParser from 'cookie-parser';
+import { authMiddleware } from './middlewares/authMiddleware.js';
 
 const app = express();
 
@@ -32,6 +34,7 @@ app.set('views', './src/views');
 app.use('/static', express.static('src/public'));
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
+app.use(authMiddleware);
 
 app.use(routes);
 
