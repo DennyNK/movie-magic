@@ -70,10 +70,30 @@ movieController.get('/:movieId/delete', async (req, res) => {
 
 });
 
+function getCategoriesVewData(category){
+    const categoriesMap = {
+        'tv-show': 'TV Show',
+        'animation': 'Animation',
+        'movie': 'Movie',
+        'documentary': 'Documentary',
+        'short-film': 'Short film'};
+
+    const categories = Object.keys(categoriesMap).map(categoryValue => ({
+        value: categoryValue,
+        label: categoriesMap[categoryValue],
+        selected: categoryValue === category ? 'selected' : '',
+    }));
+
+    return categories;
+}
+
 movieController.get('/:movieId/edit', async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getOne(movieId);
-    res.render('movie/edit', { movie });
+
+    const categories = getCategoriesVewData(movie.category);
+
+    res.render('movie/edit', { movie, categories });
 });
 
 
