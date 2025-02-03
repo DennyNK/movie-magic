@@ -12,7 +12,11 @@ description: String,
 cast: [{
     type: Types.ObjectId,
     ref: 'Cast'
-}]
+}],
+creator: {
+    type: Types.ObjectId,
+    ref: 'User'
+}
 });
 
 const Movie = model('Movie', movieSchema);
