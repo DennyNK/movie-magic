@@ -90,11 +90,26 @@ function getCategoriesVewData(category){
 movieController.get('/:movieId/edit', async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getOne(movieId);
+    // console.log(movieId);
+    
+    console.log(movie);
+    
 
     const categories = getCategoriesVewData(movie.category);
 
     res.render('movie/edit', { movie, categories });
 });
+
+movieController.post('/:movieId/edit', async (req, res) => {
+    const movieData = req.body;
+    const movieId = req.params.movieId;
+    // console.log(movieData);
+    
+
+    await movieService.update(movieId, movieData);
+
+    res.redirect(`/movies/${movieId}/details`);
+})
 
 
 export default movieController;

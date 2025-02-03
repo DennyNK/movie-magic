@@ -2,9 +2,13 @@ import Movie from "../models/Movie.js";
 
 export default {
     getOne(movieId){
-        const resultMovie = Movie.findById(movieId).populate('cast');
-    
-        return resultMovie;
+        return Movie.findById(movieId)
+        .then(resultMovie => {
+            if(resultMovie.cast && resultMovie.cast.length > 0){
+                return resultMovie.populate('cast');
+            };
+            return resultMovie;
+        })
     },
     create(movieData, creatorId) {
 
@@ -44,6 +48,9 @@ export default {
     },
     delete(movieId){
         return Movie.findByIdAndDelete(movieId);
+    },
+    update(movieId, movieData){
+        return Movie.findByIdAndUpdate(movieId, movieData);
     }
 
 }
