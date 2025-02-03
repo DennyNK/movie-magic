@@ -27,6 +27,8 @@ export const authMiddleware = (req, res, next) => {
 
         console.log(err.message);
 
+        res.clearCookie('auth');
+        res.redirect('/auth/login');
     }
 
 };
