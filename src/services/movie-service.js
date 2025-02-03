@@ -35,12 +35,15 @@ export default {
 
         return query;
     },
-    async attachCast(movieId, castId){
-        const movie = await Movie.findById(movieId);
+    attachCast(movieId, castId){
+        const movie = Movie.findById(movieId);
         movie.cast.push(castId);
-        await movie.save();
+        movie.save();
 
         return movie;
+    },
+    delete(movieId){
+        return Movie.findByIdAndDelete(movieId);
     }
 
 }
