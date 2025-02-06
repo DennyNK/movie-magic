@@ -7,7 +7,11 @@ title: {
     minlength: [5, 'Title should be at least 5 character slong'],
     match: [/^[a-zA-Z 0-9]+$/, 'Title should be alphanumeric, digits and whitespaces']
 },
-category: String,
+category: {
+    type: String,
+    required: true,
+    enum: ['tv-show', 'animation', 'movie', 'documentary', 'short-film']
+},
 genre: {
     type: String,
     required: [true, 'Genre is required'],
