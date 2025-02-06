@@ -9,7 +9,13 @@ const SECRET = process.env.JWT_SECRET || 'BASICSECRET';
 
 export default {
 
-    register(userData) {
+    async register(userData) {
+        const userCount = await User.countDocuments({email: userData.email});
+
+        if(userCount > 0){
+            throw Error('A user with this email already exists')
+        }
+
         return User.create(userData);
 
     },
