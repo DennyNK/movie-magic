@@ -10,10 +10,15 @@ const SECRET = process.env.JWT_SECRET || 'BASICSECRET';
 export default {
 
     async register(userData) {
+
+        if(userData.password !== userData.rePassword){
+            throw new Error ("Passwords don't match")
+        }
+
         const userCount = await User.countDocuments({email: userData.email});
 
         if(userCount > 0){
-            throw Error('A user with this email already exists')
+            throw new Error('A user with this email already exists')
         }
 
         return User.create(userData);
